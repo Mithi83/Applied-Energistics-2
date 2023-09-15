@@ -452,7 +452,7 @@
   "gui.ae2.SearchSettingsUseInternalSearch": "Использовать AE",
   "gui.ae2.SearchTooltip": "Поиск по названию",
   "gui.ae2.SearchTooltipIncludingTooltips": "Поиск по имени и всплывающей подсказке",
-  "gui.ae2.SearchTooltipItemId": "Использовать * для поиска по идентификатору (*ячейка)",
+  "gui.ae2.SearchTooltipItemId": "Используйте * для поиска по идентификатору (*ячейка)",
   "gui.ae2.SearchTooltipModId": "Используйте @ для поиска по моду (@ae2)",
   "gui.ae2.SearchTooltipTag": "Используйте # для поиска по тегам (#ores)",
   "gui.ae2.SelectAmount": "Выбрать кол-во",
