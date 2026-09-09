@@ -59,4 +59,9 @@ public class CarriedItemInventory implements InternalInventory {
     public ResourceHandler<ItemResource> toResourceHandler() {
         return CarriedSlotWrapper.of(menu);
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        // TODO
+    }
 }

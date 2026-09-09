@@ -99,4 +99,9 @@ public class AppEngCellInventory extends BaseInternalInventory {
     public void sendChangeNotification(int slot) {
         inv.sendChangeNotification(slot);
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        inv.setDeferNotification(defer);
+    }
 }

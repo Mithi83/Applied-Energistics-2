@@ -395,4 +395,10 @@ public interface InternalInventory extends Iterable<ItemStack>, ItemTransfer {
     @ApiStatus.Internal
     default void sendChangeNotification(int slot) {
     }
+
+    /**
+     * Controls whether a notification should take effect immediately or be deferred.
+     * This is used in particular to only send notifications for transactions that are actually committed.
+     */
+    void setDeferNotification(boolean defer);
 }

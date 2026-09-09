@@ -33,6 +33,7 @@ import net.neoforged.neoforge.transfer.item.ItemResource;
 public abstract class BaseInternalInventory implements InternalInventory {
 
     private ResourceHandler<ItemResource> platformWrapper;
+    private boolean deferNotifications;
 
     @Override
     public final ResourceHandler<ItemResource> toResourceHandler() {
@@ -44,5 +45,14 @@ public abstract class BaseInternalInventory implements InternalInventory {
 
     protected ResourceHandler<ItemResource> createResourceHandler() {
         return new InternalInventoryResourceHandler(this);
+    }
+
+    public boolean isDeferNotifications() {
+        return deferNotifications;
+    }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        this.deferNotifications = defer;
     }
 }

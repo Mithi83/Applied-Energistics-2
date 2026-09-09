@@ -51,4 +51,9 @@ public final class DelegateItemUpgradeInventory extends SupplierInternalInventor
             return UpgradeInventories.empty();
         }
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        getDelegate().setDeferNotification(defer);
+    }
 }

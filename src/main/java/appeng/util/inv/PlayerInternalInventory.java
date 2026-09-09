@@ -58,4 +58,9 @@ public class PlayerInternalInventory implements InternalInventory {
     public ResourceHandler<ItemResource> toResourceHandler() {
         return PlayerInventoryWrapper.of(inventory);
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        // TODO
+    }
 }

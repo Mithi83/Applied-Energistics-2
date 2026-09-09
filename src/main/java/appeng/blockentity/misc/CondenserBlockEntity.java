@@ -231,6 +231,11 @@ public class CondenserBlockEntity extends AEBaseInvBlockEntity implements IConfi
         public ItemStack extractItem(int slot, int amount, boolean simulate) {
             return ItemStack.EMPTY;
         }
+
+        @Override
+        public void setDeferNotification(boolean defer) {
+            // TODO this needs to be changed in @insertItem and @setItemDirect
+        }
     }
 
     private class CondenseResourceHandler<T extends Resource>

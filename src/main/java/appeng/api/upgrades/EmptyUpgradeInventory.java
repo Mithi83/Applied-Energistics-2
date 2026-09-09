@@ -99,4 +99,8 @@ final class EmptyUpgradeInventory implements IUpgradeInventory {
     @Override
     public void writeToNBT(ValueOutput output, String subtag) {
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+    }
 }

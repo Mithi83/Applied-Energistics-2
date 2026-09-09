@@ -83,7 +83,9 @@ public class AppEngInternalInventory extends BaseInternalInventory {
     }
 
     private void notifyContentsChanged(int slot) {
-        onContentsChanged(slot);
+        if (!isDeferNotifications()) {
+            onContentsChanged(slot);
+        }
     }
 
     @Override
@@ -199,5 +201,10 @@ public class AppEngInternalInventory extends BaseInternalInventory {
     @Override
     public int size() {
         return stacks.size();
+    }
+
+    @Override
+    public void sendChangeNotification(int slot) {
+        onContentsChanged(slot);
     }
 }

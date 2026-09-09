@@ -85,4 +85,9 @@ public class FilteredInternalInventory extends BaseInternalInventory {
     public void sendChangeNotification(int slot) {
         delegate.sendChangeNotification(slot);
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        delegate.setDeferNotification(defer);
+    }
 }

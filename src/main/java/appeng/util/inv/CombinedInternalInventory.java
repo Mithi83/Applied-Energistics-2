@@ -148,4 +148,11 @@ public class CombinedInternalInventory extends BaseInternalInventory {
 
         return new CombinedResourceHandler<>(parts.toArray(ResourceHandler[]::new));
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        for (InternalInventory inventory : this.inventories) {
+            inventory.setDeferNotification(defer);
+        }
+    }
 }

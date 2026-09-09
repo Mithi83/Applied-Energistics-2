@@ -127,4 +127,9 @@ public class SupplierInternalInventory<T extends InternalInventory> implements I
     public void sendChangeNotification(int slot) {
         getDelegate().sendChangeNotification(slot);
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        getDelegate().setDeferNotification(defer);
+    }
 }

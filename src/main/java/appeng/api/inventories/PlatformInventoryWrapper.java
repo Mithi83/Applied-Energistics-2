@@ -111,4 +111,8 @@ public class PlatformInventoryWrapper implements InternalInventory {
         }
     }
 
+    @Override
+    public void setDeferNotification(boolean defer) {
+        // TODO
+    }
 }

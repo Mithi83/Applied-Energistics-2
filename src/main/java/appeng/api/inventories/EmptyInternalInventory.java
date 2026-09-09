@@ -75,4 +75,8 @@ class EmptyInternalInventory implements InternalInventory {
     public ItemStack extractItem(int slot, int amount, boolean simulate) {
         return ItemStack.EMPTY;
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+    }
 }

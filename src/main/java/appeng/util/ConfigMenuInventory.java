@@ -121,4 +121,9 @@ public class ConfigMenuInventory implements InternalInventory {
 
         return null;
     }
+
+    @Override
+    public void setDeferNotification(boolean defer) {
+        // TODO
+    }
 }

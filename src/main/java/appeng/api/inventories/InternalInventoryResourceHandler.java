@@ -37,11 +37,11 @@ import appeng.core.definitions.AEItems;
 
 class InternalInventoryResourceHandler extends SnapshotJournal<InternalInventoryResourceHandler.Snapshot>
         implements ResourceHandler<ItemResource>, IndexModifier<ItemResource> {
-    private final InternalInventory inventory;
+    private final BaseInternalInventory inventory;
     @Nullable
     private Snapshot lastReleasedSnapshot;
 
-    public InternalInventoryResourceHandler(InternalInventory inventory) {
+    public InternalInventoryResourceHandler(BaseInternalInventory inventory) {
         this.inventory = inventory;
     }
 
@@ -58,7 +58,9 @@ class InternalInventoryResourceHandler extends SnapshotJournal<InternalInventory
 
         updateSnapshots(transaction);
 
+        inventory.setDeferNotification(true);
         var overflow = inventory.addItems(stack);
+        inventory.setDeferNotification(false);
         return maxAmount - overflow.getCount();
     }
 
@@ -73,7 +75,9 @@ class InternalInventoryResourceHandler extends SnapshotJournal<InternalInventory
 
         updateSnapshots(transaction);
 
+        inventory.setDeferNotification(true);
         ItemStack extracted = inventory.removeItems(maxAmount, resource.toStack(), null);
+        inventory.setDeferNotification(false);
 
         return extracted.getCount();
     }
@@ -84,7 +88,9 @@ class InternalInventoryResourceHandler extends SnapshotJournal<InternalInventory
 
         updateSnapshots(transaction);
 
+        inventory.setDeferNotification(true);
         var overflow = inventory.insertItem(index, resource.toStack(maxAmount), false).getCount();
+        inventory.setDeferNotification(false);
         return maxAmount - overflow;
     }
 
@@ -99,7 +105,11 @@ class InternalInventoryResourceHandler extends SnapshotJournal<InternalInventory
 
         updateSnapshots(transaction);
 
-        return inventory.extractItem(index, maxAmount, false).getCount();
+        inventory.setDeferNotification(true);
+        var result = inventory.extractItem(index, maxAmount, false).getCount();
+        inventory.setDeferNotification(false);
+
+        return result;
     }
 
     @Override
